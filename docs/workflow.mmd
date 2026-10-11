@@ -1,0 +1,17 @@
+flowchart LR
+    A["User uploads image"] --> B{"Validate bytes"}
+    B -- invalid --> BE["Friendly error:\nempty / corrupt / unsupported / too large"]
+    B -- valid --> C["RGB conversion + EXIF upright"]
+    C --> D{"Analysis mode?"}
+    D -- "AI-image" --> E["Model A inference\n(whole image)"]
+    D -- "Deepfake" --> F["Face detection\n(YuNet @ ≤1024px)"]
+    D -- "Both" --> E
+    D -- "Both" --> F
+    E --> G["Score → verdict\nreal / AI-generated / inconclusive"]
+    F -- "no face" --> H["'No face detected'\nNO fabricated score"]
+    F -- "faces" --> I["Crop each face (+25% margin)"]
+    I --> J["Model B per face\nsigmoid score"]
+    J --> K["Per-face verdicts +\nconflict-aware summary"]
+    G --> L["Result cards + timings +\ntechnical details + disclaimer"]
+    H --> L
+    K --> L

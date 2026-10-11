@@ -1,0 +1,27 @@
+flowchart TB
+    subgraph UI["Streamlit front end (app.py)"]
+        UP["File uploader\nJPG / JPEG / PNG"]
+        PV["Preview + dimensions"]
+        MODE["Mode selector:\nAI-image | Deepfake | Both"]
+        CARDS["Result cards,\nface grid, technical details"]
+    end
+
+    subgraph CORE["Analysis layer (no UI code)"]
+        VAL["utils/image_validation.py\ncontent-sniffing, byte/pixel limits,\ncorrupt-file detection, EXIF + RGB"]
+        ORCH["analysis.py\nmode dispatch, per-face loop,\nsummaries, error isolation"]
+    end
+
+    subgraph MODELS["Detector layer (lazy, cached)"]
+        FA["models/ai_image_detector.py\nModel A · SwinV2 · softmax"]
+        FD["models/face_detector.py\nYuNet → Haar fallback"]
+        FB["models/deepfake_detector.py\nModel B · ViT-S · sigmoid"]
+    end
+
+    UP --> VAL --> PV
+    VAL --> ORCH
+    MODE --> ORCH
+    ORCH --> FA
+    ORCH --> FD --> FB
+    FA --> CARDS
+    FB --> CARDS
+    FD --> CARDS

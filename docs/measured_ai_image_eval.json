@@ -1,0 +1,84 @@
+{
+  "detector": "ai-image",
+  "models": {
+    "ai-image": "haywoodsloan/ai-image-detector-deploy",
+    "deepfake": null
+  },
+  "dataset": {
+    "real": 5,
+    "fake": 5,
+    "real_dir": "data/demo_eval/ai_image/real",
+    "fake_dir": "data/demo_eval/ai_image/ai"
+  },
+  "decision_boundary": 0.5,
+  "n_scored": 10,
+  "n_errors": 0,
+  "n_skipped_no_face": 0,
+  "per_file_predictions": [
+    {
+      "file": "candidate_0.jpg",
+      "label": 0,
+      "score": 0.0094
+    },
+    {
+      "file": "real_market1.jpg",
+      "label": 0,
+      "score": 0.1019
+    },
+    {
+      "file": "real_market2.jpg",
+      "label": 0,
+      "score": 0.0004
+    },
+    {
+      "file": "real_portrait.jpg",
+      "label": 0,
+      "score": 0.0241
+    },
+    {
+      "file": "real_scene.jpg",
+      "label": 0,
+      "score": 0.0181
+    },
+    {
+      "file": "ai_bicycle.png",
+      "label": 1,
+      "score": 0.7553
+    },
+    {
+      "file": "ai_food.png",
+      "label": 1,
+      "score": 0.9984
+    },
+    {
+      "file": "ai_forest.png",
+      "label": 1,
+      "score": 0.0052
+    },
+    {
+      "file": "ai_portrait.png",
+      "label": 1,
+      "score": 0.9998
+    },
+    {
+      "file": "ai_scene.png",
+      "label": 1,
+      "score": 0.9924
+    }
+  ],
+  "elapsed_s": 8.7,
+  "errors": [],
+  "metrics": {
+    "accuracy": 0.9,
+    "precision_fake": 1.0,
+    "recall_fake": 0.8,
+    "f1_fake": 0.8889,
+    "confusion_matrix": {
+      "tn": 5,
+      "fp": 0,
+      "fn": 1,
+      "tp": 4
+    },
+    "roc_auc": 0.84
+  }
+}

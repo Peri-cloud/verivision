@@ -1,0 +1,39 @@
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Python caches
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Downloaded model weights and caches (never commit large binaries)
+.model_cache/
+models/weights/
+*.onnx
+*.safetensors
+*.bin
+
+# Datasets and evaluation outputs
+data/
+datasets/
+results/
+eval_output/
+
+# Temporary uploads
+uploads/
+tmp/
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Secrets - never store credentials in the repository
+.env
+*.key

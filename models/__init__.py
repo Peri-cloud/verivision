@@ -1,0 +1,1 @@
+"""VeriVision AI detector package."""

@@ -1,0 +1,69 @@
+{
+  "detector": "deepfake",
+  "models": {
+    "ai-image": null,
+    "deepfake": "buildborderless/CommunityForensics-DeepfakeDet-ViT"
+  },
+  "dataset": {
+    "real": 5,
+    "fake": 2,
+    "real_dir": "data/demo_eval/deepfake/real",
+    "fake_dir": "data/demo_eval/deepfake/ai"
+  },
+  "decision_boundary": 0.5,
+  "n_scored": 7,
+  "n_errors": 0,
+  "n_skipped_no_face": 0,
+  "per_file_predictions": [
+    {
+      "file": "candidate_0.jpg",
+      "label": 0,
+      "score": 0.0
+    },
+    {
+      "file": "candidate_1.jpg",
+      "label": 0,
+      "score": 0.9965
+    },
+    {
+      "file": "candidate_2.jpg",
+      "label": 0,
+      "score": 0.0201
+    },
+    {
+      "file": "candidate_3.jpg",
+      "label": 0,
+      "score": 1.0
+    },
+    {
+      "file": "real_portrait.jpg",
+      "label": 0,
+      "score": 0.0145
+    },
+    {
+      "file": "ai_oldman.png",
+      "label": 1,
+      "score": 0.001
+    },
+    {
+      "file": "ai_portrait.png",
+      "label": 1,
+      "score": 0.0444
+    }
+  ],
+  "elapsed_s": 2.4,
+  "errors": [],
+  "metrics": {
+    "accuracy": 0.4286,
+    "precision_fake": 0.0,
+    "recall_fake": 0.0,
+    "f1_fake": 0.0,
+    "confusion_matrix": {
+      "tn": 3,
+      "fp": 2,
+      "fn": 2,
+      "tp": 0
+    },
+    "roc_auc": 0.4
+  }
+}
